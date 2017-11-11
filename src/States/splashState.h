@@ -14,7 +14,7 @@ public:
 
     void init() override;
     void update() override;
-    void render() override;
+    void render() const override;
     void cleanUp() override;
 };
 

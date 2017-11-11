@@ -22,7 +22,7 @@ void SplashState::update() {
     }
 }
 
-void SplashState::render() {
+void SplashState::render() const {
     window.draw(text);
 }
 

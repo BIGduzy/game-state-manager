@@ -20,7 +20,7 @@ void PlayState::update() {
     }
 }
 
-void PlayState::render() {
+void PlayState::render() const {
     window.draw(shape);
 }
 
