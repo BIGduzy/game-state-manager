@@ -11,12 +11,12 @@ private:
     GameStateManager();
 
 private:
-    static std::vector<State*> states;
+    static std::vector<std::unique_ptr<State>> states;
 public:
-    static State* getCurrentState();
+    static std::unique_ptr<State>& getCurrentState();
 
     static void popState();
-    static void pushState(State* state);
+    static void pushState(std::unique_ptr<State> state);
 };
 
 #endif //GSM_GAMESTATEMANAGER_H

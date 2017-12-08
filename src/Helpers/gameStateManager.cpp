@@ -1,24 +1,24 @@
+#include <memory>
 #include "gameStateManager.h"
 
 GameStateManager::GameStateManager(){};
 
 // Static member variables must be declared
-std::vector<State*> GameStateManager::states;
+std::vector<std::unique_ptr<State>> GameStateManager::states;
 
-State* GameStateManager::getCurrentState() {
-    return (states.size() > 0) ? states.back() : nullptr;
+std::unique_ptr<State>& GameStateManager::getCurrentState() {
+    return states.back();
 }
 
 void GameStateManager::popState() {
     if (states.size() > 0) {
         states.back()->cleanUp();
-        // Is this necessary?
-        delete states.back();
         states.pop_back();
     }
 }
 
-void GameStateManager::pushState(State* state) {
+void GameStateManager::pushState(std::unique_ptr<State> state) {
+    // TODO: This does not work
     states.push_back(state);
     state->init();
 }

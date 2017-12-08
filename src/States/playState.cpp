@@ -16,7 +16,7 @@ void PlayState::update() {
     if (count++ > window.getSize().x) {
         GameStateManager::popState();
         GameStateManager::popState();
-        GameStateManager::pushState(new SplashState(window));
+        GameStateManager::pushState(std::make_unique<SplashState>(window));
     }
 }
 
