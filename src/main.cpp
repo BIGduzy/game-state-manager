@@ -16,21 +16,22 @@ int main() {
                 window.close();
             }
         }
-        State* cur = GameStateManager::getCurrentState();
-        if (cur == nullptr) continue; // No state
-
         /**********/
         /**UPDATE**/
         /**********/
         // TODO: game loop
         // Update the active state
-        cur->update();
+        if (GameStateManager::getCurrentState() != nullptr) {
+            GameStateManager::getCurrentState()->update();
+        }
         /**********/
         /**RENDER**/
         /**********/
         window.clear(sf::Color(200, 200, 200));
         // Draw the active state
-        cur->render();
+        if (GameStateManager::getCurrentState() != nullptr) {
+            GameStateManager::getCurrentState()->render();
+        }
         window.display();
     }
 
