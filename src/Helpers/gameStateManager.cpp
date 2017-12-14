@@ -1,12 +1,11 @@
-#include <memory>
 #include "gameStateManager.h"
 
 GameStateManager::GameStateManager(){};
 
 // Static member variables must be declared
-std::vector<std::unique_ptr<State>> GameStateManager::states;
+std::vector<std::shared_ptr<State>> GameStateManager::states;
 
-std::unique_ptr<State>& GameStateManager::getCurrentState() {
+std::shared_ptr<State> GameStateManager::getCurrentState() {
     return states.back();
 }
 
@@ -17,8 +16,7 @@ void GameStateManager::popState() {
     }
 }
 
-void GameStateManager::pushState(std::unique_ptr<State> state) {
-    // TODO: This does not work
+void GameStateManager::pushState(std::shared_ptr<State> state) {
     states.push_back(state);
     state->init();
 }

@@ -18,7 +18,7 @@ void SplashState::init() {
 
 void SplashState::update() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-        GameStateManager::pushState(std::make_unique<PlayState>(window));
+        GameStateManager::pushState(std::make_shared<PlayState>(window));
     }
 }
 
