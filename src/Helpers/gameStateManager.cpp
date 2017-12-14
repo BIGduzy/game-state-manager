@@ -3,22 +3,20 @@
 GameStateManager::GameStateManager(){};
 
 // Static member variables must be declared
-std::vector<State*> GameStateManager::states;
+std::vector<std::shared_ptr<State>> GameStateManager::states;
 
-State* GameStateManager::getCurrentState() {
-    return (states.size() > 0) ? states.back() : nullptr;
+std::shared_ptr<State> GameStateManager::getCurrentState() {
+    return states.back();
 }
 
 void GameStateManager::popState() {
     if (states.size() > 0) {
         states.back()->cleanUp();
-        // Is this necessary?
-        delete states.back();
         states.pop_back();
     }
 }
 
-void GameStateManager::pushState(State* state) {
+void GameStateManager::pushState(std::shared_ptr<State> state) {
     states.push_back(state);
     state->init();
 }

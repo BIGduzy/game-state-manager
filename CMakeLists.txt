@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
 project(GSM)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 set(SOURCE_FILES src/main.cpp src/States/state.h src/States/playState.cpp src/States/playState.h src/Helpers/gameStateManager.cpp src/Helpers/gameStateManager.h src/States/splashState.cpp src/States/splashState.h)
 add_executable(GSM ${SOURCE_FILES})

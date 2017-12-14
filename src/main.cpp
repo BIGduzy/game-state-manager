@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 #include <SFML/Graphics.hpp>
 #include "Helpers/gameStateManager.h"
 #include "States/splashState.h"
@@ -7,8 +8,7 @@ int main() {
     sf::RenderWindow window(sf::VideoMode(1280, 720), "Game State Manager");
     sf::Event event;
 
-    SplashState splashState(window);
-    GameStateManager::pushState(&splashState);
+    GameStateManager::pushState(std::make_shared<SplashState>(window));
 
     while(window.isOpen()) {
         while(window.pollEvent(event)) {

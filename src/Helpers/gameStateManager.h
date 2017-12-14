@@ -1,6 +1,7 @@
 #ifndef GSM_GAMESTATEMANAGER_H
 #define GSM_GAMESTATEMANAGER_H
 
+#include <memory>
 #include <vector>
 #include "../States/State.h"
 
@@ -11,12 +12,12 @@ private:
     GameStateManager();
 
 private:
-    static std::vector<State*> states;
+    static std::vector<std::shared_ptr<State>> states;
 public:
-    static State* getCurrentState();
+    static std::shared_ptr<State> getCurrentState();
 
     static void popState();
-    static void pushState(State* state);
+    static void pushState(std::shared_ptr<State> state);
 };
 
 #endif //GSM_GAMESTATEMANAGER_H
