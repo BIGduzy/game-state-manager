@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "State.h"
-#include "playState.h"
+#include "menuState.h"
 
 class SplashState : public State {
 private:

@@ -11,9 +11,10 @@ void PlayState::init() {
 }
 
 void PlayState::update() {
-    shape.setPosition({count, window.getSize().y / 2 - 25});
+    count += 10;
+    shape.setPosition({static_cast<float>(count), static_cast<float>(window.getSize().y / 2 - 25)});
 
-    if (count++ > window.getSize().x) {
+    if (count > window.getSize().x) {
         GameStateManager::popState();
     }
 }

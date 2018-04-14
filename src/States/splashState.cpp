@@ -5,7 +5,7 @@ SplashState::SplashState(sf::RenderWindow& _window):
     State(_window),
 	ball(30),
 	ballPosition(50, 50),
-	ballVelocity(1, 1)
+	ballVelocity(5, 5)
 {
 };
 
@@ -25,7 +25,7 @@ void SplashState::init() {
 
 void SplashState::update() {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-        GameStateManager::pushState(std::make_unique<PlayState>(window));
+        GameStateManager::pushState(std::make_unique<MenuState>(window));
     }
 
 	if (ballPosition.x + ball.getRadius() / 2 < 0 || ballPosition.x + ball.getRadius() / 2 >= window.getSize().x) {

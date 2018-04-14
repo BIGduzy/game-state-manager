@@ -3,7 +3,7 @@ project(GSM)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
-set(SOURCE_FILES src/main.cpp src/States/state.h src/States/playState.cpp src/States/playState.h src/Helpers/gameStateManager.cpp src/Helpers/gameStateManager.h src/States/splashState.cpp src/States/splashState.h)
+set(SOURCE_FILES src/main.cpp src/States/state.h src/States/menuState.cpp src/States/menuState.h src/States/playState.cpp src/States/playState.h src/Helpers/gameStateManager.cpp src/Helpers/gameStateManager.h src/Helpers/menu.cpp src/Helpers/menu.h src/Helpers/menuItem.cpp src/Helpers/menuItem.h src/States/splashState.cpp src/States/splashState.h)
 add_executable(GSM ${SOURCE_FILES})
 
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake_modules")
